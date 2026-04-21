@@ -1,16 +1,40 @@
 #include <iostream>
+#include "supermercato.h"
+using namespace std;
 
-// TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 int main() {
-    // TIP Press <shortcut actionId="RenameElement"/> when your caret is at the <b>lang</b> variable name to see how CLion can help you rename it.
-    auto lang = "C++";
-    std::cout << "Hello and welcome to " << lang << "!\n";
+    int vendite[3][7] = {0};
+    int scelta;
 
-    for (int i = 1; i <= 5; i++) {
-        // TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        std::cout << "i = " << i << std::endl;
-    }
+    do {
+        cout << "\n--- GESTIONALE SUPERMERCATO ---" << endl;
+        cout << "1. Inserisci vendite settimanali " << endl;
+        cout << "2. Visualizza tabella vendite" << endl;
+        cout << "3. Totale vendite di un prodotto" << endl;
+        cout << "4. Totale vendite di un giorno" << endl;
+        cout << "5. Prodotto piu' venduto" << endl;
+        cout << "6. Giorno con vendite maggiori" << endl;
+        cout << "0. Esci" << endl;
+        cout << "Scelta: ";
+        cin >> scelta;
+
+        switch(scelta) {
+            case 1: inserisciVendite(vendite); break;
+            case 2: visualizzaVendite(vendite); break;
+            case 3:
+                int p; cout << "Inserisci num prodotto (0-2): "; cin >> p;
+                cout << "Totale: " << totaleVenditeProdotto(vendite, p) << endl;
+                break;
+            case 4:
+                int g; cout << "Inserisci num giorno (0-6): "; cin >> g;
+                cout << "Totale: " << totaleVenditeGiorno(vendite, g) << endl;
+                break;
+            case 5: cout << "Il prodotto piu' venduto e': " << prodottoPiuVenduto(vendite) << endl; break;
+            case 6: cout << "Il giorno migliore e': " << giorniSettimana[giornoVenditeMaggiori(vendite)] << endl; break;
+            case 0: cout << "Uscita..." << endl; break;
+            default: cout << "Scelta non valida!" << endl;
+        }
+    } while (scelta != 0);
 
     return 0;
-    // TIP See CLion help at <a href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>. Also, you can try interactive lessons for CLion by selecting 'Help | Learn IDE Features' from the main menu.
 }
