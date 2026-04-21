@@ -1,7 +1,7 @@
 #include <iostream>
 #include "supermercato.h"
 using namespace std;
-
+//
 int main() {
     int vendite[3][7] = {0};
     int scelta;
