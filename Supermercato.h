@@ -1,8 +1,14 @@
-//
-// Created by Kareissa on 20/04/2026.
-//
+#ifndef SUPERMERCATO_H
+#define SUPERMERCATO_H
+#include <string>
 
-#ifndef SUPERMERCATO2_SUPERMERCATO_H
-#define SUPERMERCATO2_SUPERMERCATO_H
+void inserisciVendite(int vendite[3][7]);
+void visualizzaVendite(int vendite[3][7]);
+int totaleVenditeProdotto(int vendite[3][7], int prodotto);
+int totaleVenditeGiorno(int vendite[3][7], int giorno);
+int prodottoPiuVenduto(int vendite[3][7]);
+int giornoVenditeMaggiori(int vendite[3][7]);
 
-#endif //SUPERMERCATO2_SUPERMERCATO_H
+const std::string giorniSettimana[] = {"Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"};
+
+#endif
