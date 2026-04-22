@@ -49,3 +49,4 @@ int giornoVenditeMaggiori(int vendite[3][7]) {
     }
     return g;
 }
+//ciao
