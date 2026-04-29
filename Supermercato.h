@@ -2,6 +2,7 @@
 #define SUPERMERCATO_H
 #include <string>
 
+
 void inserisciVendite(int vendite[3][7]);
 void visualizzaVendite(int vendite[3][7]);
 int totaleVenditeProdotto(int vendite[3][7], int prodotto);
