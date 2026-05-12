@@ -1,10 +1,11 @@
 #include <iostream>
 #include "supermercato.h"
 using namespace std;
-//
+
 int main() {
     int vendite[3][7] = {0};
     int scelta;
+    int datiCaricati = 0; // Per evitare numeri a caso se non hanno ancora premuto 1
 
     do {
         cout << "\n--- GESTIONALE SUPERMERCATO ---" << endl;
@@ -19,18 +20,46 @@ int main() {
         cin >> scelta;
 
         switch(scelta) {
-            case 1: inserisciVendite(vendite); break;
-            case 2: visualizzaVendite(vendite); break;
+            case 1:
+                inserisciVendite(vendite);
+                datiCaricati = 1;
+                break;
+            case 2:
+                if(datiCaricati == 0) cout << "Errore: Inserisci prima le vendite!" << endl;
+                else visualizzaVendite(vendite);
+                break;
             case 3:
-                int p; cout << "Inserisci num prodotto (0-2): "; cin >> p;
-                cout << "Totale: " << totaleVenditeProdotto(vendite, p) << endl;
+                if(datiCaricati == 0) cout << "Errore: Inserisci prima le vendite!" << endl;
+                else {
+                    int p; cout << "Inserisci num prodotto (0-2): "; cin >> p;
+                    // FIX: Controllo indice prodotto
+                    while (p < 0 || p > 2) {
+                        cout << "Errore! Inserisci un numero tra 0 e 2: ";
+                        cin >> p;
+                    }
+                    cout << "Totale: " << totaleVenditeProdotto(vendite, p) << endl;
+                }
                 break;
             case 4:
-                int g; cout << "Inserisci num giorno (0-6): "; cin >> g;
-                cout << "Totale: " << totaleVenditeGiorno(vendite, g) << endl;
+                if(datiCaricati == 0) cout << "Errore: Inserisci prima le vendite!" << endl;
+                else {
+                    int g; cout << "Inserisci num giorno (0-6): "; cin >> g;
+                    // FIX: Controllo indice giorno
+                    while (g < 0 || g > 6) {
+                        cout << "Errore! Inserisci un numero tra 0 e 6: ";
+                        cin >> g;
+                    }
+                    cout << "Totale: " << totaleVenditeGiorno(vendite, g) << endl;
+                }
                 break;
-            case 5: cout << "Il prodotto piu' venduto e': " << prodottoPiuVenduto(vendite) << endl; break;
-            case 6: cout << "Il giorno migliore e': " << giorniSettimana[giornoVenditeMaggiori(vendite)] << endl; break;
+            case 5:
+                if(datiCaricati == 0) cout << "Errore: Inserisci prima le vendite!" << endl;
+                else cout << "Il prodotto piu' venduto e': " << prodottoPiuVenduto(vendite) << endl;
+                break;
+            case 6:
+                if(datiCaricati == 0) cout << "Errore: Inserisci prima le vendite!" << endl;
+                else cout << "Il giorno migliore e': " << giorniSettimana[giornoVenditeMaggiori(vendite)] << endl;
+                break;
             case 0: cout << "Uscita..." << endl; break;
             default: cout << "Scelta non valida!" << endl;
         }

@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 #include "supermercato.h"
 using namespace std;
 
@@ -8,6 +7,10 @@ void inserisciVendite(int vendite[3][7]) {
         for (int j = 0; j < 7; j++) {
             cout << "Prod " << i << " Giorno " << giorniSettimana[j] << ": ";
             cin >> vendite[i][j];
+            while (vendite[i][j] < 0) {
+                cout << "Errore! Inserisci un numero positivo: ";
+                cin >> vendite[i][j];
+            }
         }
     }
 }
@@ -15,7 +18,9 @@ void inserisciVendite(int vendite[3][7]) {
 void visualizzaVendite(int vendite[3][7]) {
     for (int i = 0; i < 3; i++) {
         cout << "Prodotto " << i << ": ";
-        for (int j = 0; j < 7; j++) cout << "  " << vendite[i][j];
+        for (int j = 0; j < 7; j++) {
+            cout << "  " << vendite[i][j];
+        }
         cout << endl;
     }
 }
