@@ -5,7 +5,7 @@ using namespace std;
 int main() {
     int vendite[3][7] = {0};
     int scelta;
-    int datiCaricati = 0; // Per evitare numeri a caso se non hanno ancora premuto 1
+    int datiCaricati = 0;
 
     do {
         cout << "\n--- GESTIONALE SUPERMERCATO ---" << endl;
