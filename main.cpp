@@ -32,7 +32,6 @@ int main() {
                 if(datiCaricati == 0) cout << "Errore: Inserisci prima le vendite!" << endl;
                 else {
                     int p; cout << "Inserisci num prodotto (0-2): "; cin >> p;
-                    // FIX: Controllo indice prodotto
                     while (p < 0 || p > 2) {
                         cout << "Errore! Inserisci un numero tra 0 e 2: ";
                         cin >> p;
@@ -44,7 +43,6 @@ int main() {
                 if(datiCaricati == 0) cout << "Errore: Inserisci prima le vendite!" << endl;
                 else {
                     int g; cout << "Inserisci num giorno (0-6): "; cin >> g;
-                    // FIX: Controllo indice giorno
                     while (g < 0 || g > 6) {
                         cout << "Errore! Inserisci un numero tra 0 e 6: ";
                         cin >> g;
